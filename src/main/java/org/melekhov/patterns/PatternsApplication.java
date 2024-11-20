@@ -1,10 +1,10 @@
 package org.melekhov.patterns;
 
-import org.melekhov.patterns.factory.CoffeeMachine;
+import org.melekhov.patterns.factory.factory.CoffeeMachine;
 import org.melekhov.patterns.singleton.Logger;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import static org.melekhov.patterns.factory.CoffeeType.AMERICANO;
+import static org.melekhov.patterns.factory.Product.AMERICANO;
 
 @SpringBootApplication
 public class PatternsApplication {
@@ -22,6 +22,7 @@ public class PatternsApplication {
 
         System.out.println(logger.equals(logger1));
         System.out.println(logger.classLog(logger1, "Hello World!"));
+        System.out.println();
 
 //        Factory
 //        Создать класс кофе, от него наследовать два вида кофе,
@@ -29,6 +30,12 @@ public class PatternsApplication {
 
         CoffeeMachine coffeeMachine = new CoffeeMachine();
         coffeeMachine.getCoffee(AMERICANO);
+        System.out.println();
+
+//        Adapter
+//
+//        Компьютер может читать информацию только с USB, нужно прочитать через usb адаптер информацию с карты памяти.
+//        (создаю карту, адаптер и с компьютера читаю)
 
     }
 

@@ -1,6 +1,6 @@
 package org.melekhov.patterns.factory;
 
-public enum CoffeeType {
+public enum Product {
     AMERICANO,
     ESPRESSO;
 }
