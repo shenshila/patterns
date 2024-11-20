@@ -1,5 +1,9 @@
 package org.melekhov.patterns;
 
+import org.melekhov.patterns.adapter.MemoryCard;
+import org.melekhov.patterns.adapter.MemoryCardAdapter;
+import org.melekhov.patterns.adapter.Pc;
+import org.melekhov.patterns.adapter.Usb;
 import org.melekhov.patterns.factory.factory.CoffeeMachine;
 import org.melekhov.patterns.singleton.Logger;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,7 +24,6 @@ public class PatternsApplication {
         Logger logger = Logger.getInstance();
         Logger logger1 = Logger.getInstance();
 
-        System.out.println(logger.equals(logger1));
         System.out.println(logger.classLog(logger1, "Hello World!"));
         System.out.println();
 
@@ -33,9 +36,20 @@ public class PatternsApplication {
         System.out.println();
 
 //        Adapter
-//
 //        Компьютер может читать информацию только с USB, нужно прочитать через usb адаптер информацию с карты памяти.
 //        (создаю карту, адаптер и с компьютера читаю)
+
+        Pc pc = new Pc();
+        Usb usb = new Usb();
+
+        pc.readUsb(usb);
+
+        System.out.println();
+
+        MemoryCard memoryCard = new MemoryCard();
+        MemoryCardAdapter memoryCardAdapter  = new MemoryCardAdapter(memoryCard);
+
+        pc.readUsb(memoryCardAdapter);
 
     }
 
