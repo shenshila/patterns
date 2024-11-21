@@ -5,6 +5,8 @@ import org.melekhov.patterns.adapter.MemoryCardAdapter;
 import org.melekhov.patterns.adapter.Pc;
 import org.melekhov.patterns.adapter.Usb;
 import org.melekhov.patterns.factory.factory.CoffeeMachine;
+import org.melekhov.patterns.proxy.DbImpl;
+import org.melekhov.patterns.proxy.DbProxy;
 import org.melekhov.patterns.singleton.Logger;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -50,6 +52,17 @@ public class PatternsApplication {
         MemoryCardAdapter memoryCardAdapter  = new MemoryCardAdapter(memoryCard);
 
         pc.readUsb(memoryCardAdapter);
+
+        System.out.println();
+
+//        Proxy
+//        Создание класса который хранит название бд и "подключается" к ней по полному url.
+//        Подключаться через proxy, который добавляет к названию полный адрес.
+//        (через proxy обращаюсь к названию бд, вижу строчку подключено localhost:port/название бд)
+
+        DbImpl db = new DbImpl();
+        DbProxy dbProxy = new DbProxy(db);
+        System.out.println(dbProxy.connect());
 
     }
 
