@@ -13,6 +13,4 @@ public abstract class ProductMachine {
             default -> throw new IllegalArgumentException("Нет такого продукта!!!");
         };
     }
-
-    public abstract void getCoffee(ICoffee coffee);
 }

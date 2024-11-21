@@ -13,9 +13,4 @@ public class CoffeeMachine extends ProductMachine {
     private void pourCoffee(ICoffee coffee) {
         System.out.println("Кофе " + coffee.getName() + " наливается!");
     }
-
-    @Override
-    public void getCoffee(ICoffee coffee) {
-        System.out.println("Кофе " + coffee.getName() + " наливается!");
-    }
 }
